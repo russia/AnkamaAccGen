@@ -20,7 +20,7 @@ namespace AnkamaAccGen
         {
             this.Username = StringHelper.GetUniqueStringUpper();
             this.Password = StringHelper.GetUniqueStringUpper();
-            this.Email = StringHelper.GetFixedLengthString(9) + "@boufton.com";
+            this.Email = StringHelper.GetFixedLengthString(9) + "@" + Constants.EmailDomain;
             CaptchaToken = captchaToken;
             TaskName = $"[AccountTask {taskId}] ";
             Start();
@@ -31,8 +31,8 @@ namespace AnkamaAccGen
             DebugHelper.Out(TaskName, "New account task created !", DebugHelper.Type.Info);
             var proxy = new WebProxy
             {
-                Address = new Uri($"http://megaproxy.rotating.proxyrack.net:10000"),
-                Credentials = new NetworkCredential(userName: "klaasvaakjes-country-FR-refreshSeconds-1", password: "ef4c02-aab4d8-4c59a0-555771-c9188b")
+                Address = new Uri($"http://gw.proxy.rainproxy.io:5959"),
+                Credentials = new NetworkCredential(userName: "FSVTRp-cc-fr", password: "6PHXASd")
             };
 
             var httpClientHandler = new HttpClientHandler

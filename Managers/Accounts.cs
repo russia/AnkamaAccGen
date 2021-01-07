@@ -30,13 +30,20 @@ namespace AnkamaAccGen.Managers
             while (true)
             {
                 Thread.Sleep(50);
-                if (!Captchas.Tokens.Any(x => x.GotResponse))
+                if (!Captchas.Tokens.ToArray().Any(x => x.GotResponse))
                     continue;
 
-                CaptchaResponse Response = Captchas.Tokens.First(x => x.GotResponse);
-                Captchas.Tokens.Remove(Response);
-                var task = Task.Run(() => { Process p = new Process(Response.Token, AccountTasks.Count()); });
-                AccountTasks.Add(task);
+                try
+                {
+                    CaptchaResponse Response = Captchas.Tokens.First(x => x.GotResponse);
+                    Captchas.Tokens.Remove(Response);
+                    var task = Task.Run(() => { Process p = new Process(Response.Token, AccountTasks.Count()); });
+                    AccountTasks.Add(task);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"Caught exception : {ex}");
+                }
             }
         }
 

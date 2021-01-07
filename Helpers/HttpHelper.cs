@@ -84,8 +84,8 @@ namespace AnkamaAccGen.Helper
         {
             var proxy = new WebProxy
             {
-                Address = new Uri($"http://megaproxy.rotating.proxyrack.net:10000"),
-                Credentials = new NetworkCredential(userName: "klaasvaakjes-country-FR-refreshSeconds-1", password: "ef4c02-aab4d8-4c59a0-555771-c9188b")
+                Address = new Uri($"http://gw.proxy.rainproxy.io:5959"),
+                Credentials = new NetworkCredential(userName: "FSVTRp-cc-fr", password: "6PHXASd")
             };
             int retries = 0;
             var httpClientHandler = new HttpClientHandler

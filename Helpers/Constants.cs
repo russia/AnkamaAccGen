@@ -8,10 +8,10 @@ namespace AnkamaAccGen.Helpers
 {
     public class Constants
     {
-        public const int AccountsCount = 1000; // max acc to create
+        public static int AccountsCount = 1000; // max acc to create
         public const string AntiCaptchaKey = "3b305a339e905b2be5644650e375dfde";
         public const string OutputPath = "accounts.txt";
-        public const string EmailDomain = "boufton.com";
+        public const string EmailDomain = "dofue.com";
         public const int MaxThreads = 5;
     }
 }
